@@ -1,0 +1,54 @@
+{{component
+  fieldComponent
+
+  open="open"
+  close="close"
+  placeholder=placeholder
+  disabled=disabled
+  value=value
+  key-up="handleFieldKeyPress"
+
+  role=role
+  aria-activedescendant=aria-activedescendant
+  aria-expanded=aria-expanded
+  aria-autocomplete=aria-autocomplete
+  aria-owns=aria-owns
+  aria-haspopup=aria-haspopup
+  aria-disabled=aria-disabled
+  aria-labelledby=aria-labelledby
+
+  class="ff-autocomplete-field"}}
+
+{{#liquid-if isOpen containerless=true}}
+  {{#if isPromisePending}}
+    <div class="ff-autocomplete-loader">
+      {{#if loaderComponent}}
+        {{component loaderComponent}}
+      {{else}}
+        <span>Loading...</span>
+      {{/if}}
+    </div>
+  {{else}}
+    {{#ui-option-list
+
+      items=proxyContent.content
+      selectedValues=selectedValues
+      disabled=disabled
+      selectWith="enter"
+      isActive=isOpen
+
+      on-select="selectItem"
+      on-key-down="refocusInput"
+      on-keyboard-out="refocusInput"
+      set-aria-owns="setAriaOwns"
+      set-active-descendent="setActiveDescendent"
+
+      class="ff-autocomplete-menu"
+
+      as |item|}}
+      {{yield item}}
+    {{else}}
+      {{yield to="inverse"}}
+    {{/ui-option-list}}
+  {{/if}}
+{{/liquid-if}}
