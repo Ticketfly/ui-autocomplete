@@ -1,6 +1,6 @@
 {
   "name": "ui-autocomplete",
-  "version": "0.0.14",
+  "version": "0.0.15",
   "description": "The default blueprint for ember-cli addons.",
   "directories": {
     "doc": "doc",
@@ -43,7 +43,7 @@
     "ember-cli-babel": "^5.0.0",
     "ember-cli-htmlbars": "0.7.9",
     "ember-keyboard": "0.2.4",
-    "ui-option-list": "firefly-ui/ui-option-list#v0.0.17"
+    "ui-option-list": "Ticketfly/ui-option-list#v0.0.17"
   },
   "ember-addon": {
     "configPath": "tests/dummy/config"
